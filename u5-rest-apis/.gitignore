@@ -1,2 +1,8 @@
+# Secret
+service-account*.json
+
+# Deps
 node_modules
+
+# DS
 .DS_Store
