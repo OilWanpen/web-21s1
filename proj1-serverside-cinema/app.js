@@ -22,5 +22,4 @@ app.use(urlencoded({ extended: false }))
 // TODO later
 
 const PORT = 3000
-app.listen(PORT, 
-  () => console.log(`Listening: http://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`Listening: http://localhost:${PORT}`))
