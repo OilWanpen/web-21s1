@@ -9,13 +9,22 @@
 </template>
 
 <script lang="ts">
+import { db } from '@/_services/firebase-initialized'
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import { mapState } from 'vuex'
 import VideoCard from './VideoCard.vue'
 
-@Component({ components: { VideoCard }})
-export default class VideoHome extends Vue { 
-  videos: []
+@Component({
+  components: { VideoCard },
+  computed: mapState(['videos'])
+})
+export default class VideoHome extends Vue {
+  videos = []
+
+  created (): void {
+    this.$bind('videos', db.collection('videos').limit(30))
+  }
 }
 </script>
 
