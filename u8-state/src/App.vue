@@ -13,8 +13,10 @@
             $store.getters.watchLaterCount
           }}
         </router-link>
-        <router-link :to="{ name: 'BookCart' }">
-          <img src="/images/icons/cart-variant.png" alt="Cart" />0
+        <router-link :to="{ name: 'BookCart', params: { slug: 'cart'} }">
+          <img src="/images/icons/cart-variant.png" alt="Cart" />{{
+            $store.getters.cartCount
+          }}
         </router-link>
       </div>
     </div>

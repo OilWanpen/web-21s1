@@ -21,7 +21,15 @@ import BookCard from './BookCard.vue'
 @Component({ components: { BookCard } })
 export default class BookSearch extends Vue {
   q = ''
-  get books(): Book[] { return [] }
+  get books (): Book[] {
+    const qLower = this.q.toLowerCase()
+    return this.$store.state.books.filter((book: Book) =>
+      book.title.toLowerCase().includes(qLower) ||
+      book.authors.some(
+        author => author.toLowerCase().includes(qLower)) ||
+      book.description.toLowerCase().includes(qLower)
+    )
+  }
 }
 </script>
 
