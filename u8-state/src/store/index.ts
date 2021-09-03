@@ -3,18 +3,18 @@ import { keyBy } from 'lodash'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { firestoreAction, vuexfireMutations } from 'vuexfire'
-import { Video } from './models'
+import { Book, Video } from './models'
 
 Vue.use(Vuex)
 
 export interface Store {
-  videos: Video[]
+ videos: Video[]
   watchLater: string[]
 }
 
 const store = new Vuex.Store<Store>({
   state: {
-    videos: [],
+   videos: [],
     watchLater: []
   },
   getters: {

@@ -3,7 +3,7 @@
     <div class="nav">
       <span class="brand">
         <router-link :to="{ name: 'VideoHome' }">DBTube</router-link> /
-        <router-link :to="{ name: 'BooksHome' }">Books</router-link>
+        <router-link :to="{ name: 'BookSearch' }">Books</router-link>
       </span>
       <div>
         <router-link
@@ -11,7 +11,10 @@
         >
           <img src="/images/icons/playlist-play.png" alt="Watch Later" />{{
             $store.getters.watchLaterCount
-            }}
+          }}
+        </router-link>
+        <router-link :to="{ name: 'BookCart' }">
+          <img src="/images/icons/cart-variant.png" alt="Cart" />0
         </router-link>
       </div>
     </div>
