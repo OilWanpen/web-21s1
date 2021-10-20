@@ -24,6 +24,21 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/entries/:slug',
+    name: 'EntryList',
+    component: EntryList
+  },
+  {
+    path: '/entries',
+    name: 'EntryDetails',
+    component: EntryDetails
+  },
+  {
+    path: '/entries/new',
+    name: 'EntryCreate',
+    component: EntryCreate
   }
 ]
 
