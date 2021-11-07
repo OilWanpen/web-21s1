@@ -4,6 +4,55 @@
     class="has-background-light"
   >
     <!-- ADD NAVBAR HERE -->
+        <b-navbar class="is-dark" wrapper-class="container">
+          <template #brand>
+            <b-navbar-item tag="router-link" :to="{ name: 'Home' }" class="is-size-5">
+              <p class = "is-size-3 has-text-weight-bold">BECinema</p>
+            </b-navbar-item>
+          </template>
+
+          <template #start>
+            <b-navbar-item tag="router-link" :to="{ name: 'CinemaList' }">
+                Cinemas
+            </b-navbar-item>
+            <b-navbar-item tag="router-link" :to="{ name: 'FilmList' }">
+                Films
+            </b-navbar-item>
+          </template>
+
+         <template #end>
+           <b-navbar-dropdown right>
+             <template #label>
+                <div style="user-select: none;">
+                  <b-icon icon="map-marker-radius-outline" class="mr-2"></b-icon>
+                  {{ $store.state.activeLocation }}
+                </div>
+              </template>
+              <b-navbar-item v-for="location in $store.state.locations"
+                :key="location"
+                @click="$store.dispatch(`changeLocation`, location)">
+                {{ location }}
+              </b-navbar-item>
+            </b-navbar-dropdown>
+            <b-navbar-dropdown right>
+              <template #label>
+                <div style="user-select: none;">
+                  <figure class="image mr-2">
+                  <img
+                  src="/images/accounts/chaz.jpg"
+                  alt="Chaz"
+                  class="is-rounded"
+                  />
+                  </figure>
+                  Chaz
+                </div>
+              </template>
+              <b-navbar-item tag="router-link" :to="{ name: 'Tickets' }">
+              My Tickets
+              </b-navbar-item>
+            </b-navbar-dropdown>
+          </template>
+        </b-navbar>
 
     <div class="container py-5">
       <router-view />
